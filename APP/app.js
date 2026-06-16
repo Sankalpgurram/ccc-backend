@@ -1,13 +1,14 @@
 const express = require("express");
+const userRoute = require("./src/routes/user.routes");
+const productRoute = require("./src/routes/product.routes");
+const orderRoute = require("./src/routes/order.routes");
 
 const app = express();
 
 app.use(express.json());
-app.get("/", (req, res) => {
-    res.send("E-Commerce Backend Running");
-});
 
-app.use("/users", require("./src/routes/user.routes"));
-app.use("/products", require("./src/routes/product.routes"));
+app.use("/users", userRoute);
+app.use("/products", productRoute);
+app.use("/orders", orderRoute);
 
 module.exports = app;

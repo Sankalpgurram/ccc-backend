@@ -1,15 +1,29 @@
-const products = [];
+const productModel = require("../models/product.model");
 
-const createProduct = (product) => {
-    products.push(product);
-    return product;
+const createProduct = async (product) => {
+    return await productModel.createProduct(product);
 };
 
-const getProducts = () => {
-    return products;
+const getAllProducts = async () => {
+    return await productModel.getAllProducts();
+};
+
+const getProductById = async (id) => {
+    return await productModel.getProductById(id);
+};
+
+const updateProduct = async (id, data) => {
+    return await productModel.updateProduct(id, data);
+};
+
+const deleteProduct = async (id) => {
+    return await productModel.deleteProduct(id);
 };
 
 module.exports = {
     createProduct,
-    getProducts
+    getAllProducts,
+    getProductById,
+    updateProduct,
+    deleteProduct,
 };

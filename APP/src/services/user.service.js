@@ -1,15 +1,45 @@
-const users = [];
+const { ObjectId } = require("mongodb");
+const { getDB } = require("../config/db");
 
-const createUser = (user) => {
-    users.push(user);
-    return user;
+const userCollection = () => {
+    return getDB().collection("users");
 };
 
-const getUsers = () => {
-    return users;
+const createUser = async (userData) => {
+    return await userCollection().insertOne(userData);
+};
+
+const getAllUsers = async () => {
+    return await userCollection().find().toArray();
+};
+
+const getUserById = async (id) => {
+    return await userCollection().findOne({
+        _id: new ObjectId(id),
+    });
+};
+
+const updateUser = async (id, data) => {
+    return await userCollection().updateOne(
+        {
+            _id: new ObjectId(id),
+        },
+        {
+            $set: data,
+        }
+    );
+};
+
+const deleteUser = async (id) => {
+    return await userCollection().deleteOne({
+        _id: new ObjectId(id),
+    });
 };
 
 module.exports = {
     createUser,
-    getUsers
+    getAllUsers,
+    getUserById,
+    updateUser,
+    deleteUser,
 };
