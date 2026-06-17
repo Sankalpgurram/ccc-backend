@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: navy;
+  color: white;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px;
+}
+
+.hero img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.about,
+.mission,
+.testimonials {
+  text-align: center;
+  padding: 40px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.card {
+  border: 1px solid gray;
+  padding: 20px;
+  width: 200px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: navy;
+  color: white;
+}
